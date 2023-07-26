@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Foo{% endblock %}
+
+{% block body %}
+    <h1>Create new Foo</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {{ form_start(form) }}
+                    {{ include("foo/_form.html.twig", {form: form}) }}
+                    <button class="btn btn-primary">Create</button>
+                {{ form_end(form, {render_rest: false}) }}
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('app_foo_index') }}">back to list</a>
+{% endblock %}

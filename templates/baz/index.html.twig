@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Baz index{% endblock %}
+
+{% block body %}
+    <h1>Baz index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for baz in bazs %}
+            <tr>
+                <td>{{ baz.id }}</td>
+                <td>{{ baz.name }}</td>
+                <td>
+                    <a href="{{ path('app_baz_show', {'id': baz.id}) }}">show</a>
+                    <a href="{{ path('app_baz_edit', {'id': baz.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_baz_new') }}">Create new</a>
+{% endblock %}
